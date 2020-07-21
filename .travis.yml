@@ -18,7 +18,7 @@ after_success:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
         - docker images
         # Take images and push them to docker hub
-        - docker push tejasdewan/muti-client
-        - docker push tejasdewan/muti-nginx
-        - docker push tejasdewan/muti-server
-        - docker push tejasdewan/muti-worker
+        - docker push tejasdewan/multi-client
+        - docker push tejasdewan/multi-nginx
+        - docker push tejasdewan/multi-server
+        - docker push tejasdewan/multi-worker
