@@ -4,20 +4,20 @@ services:
         - docker
 
 before_install:
-        - docker build -t tejas/react-test -f ./client/Dockerfile.dev ./client
+        - docker build -t tejasdewan/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-        - docker run -e CI=true tejas/react-test npm run test -- --coverage
+        - docker run -e CI=true tejasdewan/react-test npm run test -- --coverage
 
 after_success:
-        - docker build -t tejas/multi-client ./client
-        - docker build -t tejas/multi-nginx ./nginx
-        - docker build -t tejas/multi-server ./server
-        - docker build -t tejas/multi-worker ./worker
+        - docker build -t tejasdewan/multi-client ./client
+        - docker build -t tejasdewan/multi-nginx ./nginx
+        - docker build -t tejasdewan/multi-server ./server
+        - docker build -t tejasdewan/multi-worker ./worker
         # Log in to the docker CLI
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
         # Take images and push them to docker hub
-        - docker push tejas/muti-client
-        - docker push tejas/muti-nginx
-        - docker push tejas/muti-server
-        - docker push tejas/muti-worker
+        - docker push tejasdewan/muti-client
+        - docker push tejasdewan/muti-nginx
+        - docker push tejasdewan/muti-server
+        - docker push tejasdewan/muti-worker
