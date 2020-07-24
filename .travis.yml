@@ -22,3 +22,15 @@ after_success:
         - docker push tejasdewan/multi-nginx
         - docker push tejasdewan/multi-server
         - docker push tejasdewan/multi-worker
+deploy:
+        edge: true
+        provider: elasticbeanstalk
+        region: "us-east-2"
+        app: "mutli-docker"
+        env: "MultiDocker-env-1"
+        bucket_name: "elasticbeanstalk-us-east-2-814842048115"
+        bucket_path: "docker-multi"
+        on:
+                branch: master
+        access_key_id: "$AWS_ACCESS_KEY"
+        secret_access_key: "$AWS_SECRET_KEY"
